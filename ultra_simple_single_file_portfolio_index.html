@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eugene Antone — Card</title>
+  <meta name="description" content="Mechanical Engineering @ UCSB • Gaucho Racing • Machine Shop TA • SLAC (DESEE)">
+  <style>
+    :root{--bg:#0b0b0c;--card:#121214;--text:#fafafa;--muted:#a1a1aa;--line:#222226;--acc:#ffffff}
+    *{box-sizing:border-box}
+    html{height:100%}
+    body{margin:0;min-height:100%;display:grid;place-items:center;background:radial-gradient(1200px 800px at 20% 10%,#121217,transparent),radial-gradient(1000px 700px at 80% 90%,#0e0e12,transparent),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .card{width:min(680px,94vw);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;padding:22px 22px 14px;box-shadow:0 10px 40px rgba(0,0,0,.45);backdrop-filter:blur(6px)}
+    .row{display:flex;gap:18px;align-items:center}
+    .pfp{width:88px;height:88px;border-radius:16px;object-fit:cover;border:1px solid var(--line);background:#161619}
+    h1{font-size:28px;line-height:1.2;margin:0}
+    .sub{color:var(--muted);font-size:14px;margin-top:4px}
+    .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-size:12px;padding:6px 10px;border-radius:999px;background:#1a1a1f;border:1px solid var(--line);color:#d4d4d8}
+    .hr{height:1px;background:linear-gradient(90deg,transparent,#28282e,transparent);margin:16px 0}
+    .btns{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);text-decoration:none;color:#000;background:#fff;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--text)}
+    .links{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:14px}
+    .links a{color:#fff}
+    .cols{display:grid;gap:14px}
+    @media(min-width:720px){.cols{grid-template-columns:1.15fr .85fr}}
+    footer{margin-top:10px;color:#9ca3af;font-size:12px;text-align:center}
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Business card for Eugene Antone">
+    <section class="row">
+      <img class="pfp" src="/avatar.jpg" alt="Portrait of Eugene Antone" onerror="this.style.display='none'">
+      <div>
+        <h1>Eugene Antone</h1>
+        <div class="sub">Mechanical Engineering @ UCSB • Gaucho Racing • Machine Shop TA • SLAC (DESEE)</div>
+        <div class="chips">
+          <span class="chip">Vehicle Dynamics</span>
+          <span class="chip">Thermal</span>
+          <span class="chip">CNC & Machining</span>
+          <span class="chip">Solid Edge / SolidWorks</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="cols">
+      <div>
+        <div class="btns" role="group" aria-label="Primary actions">
+          <a class="btn" href="mailto:eugene@placeholder.com" id="email">Email</a>
+          <a class="btn ghost" href="/resume.pdf" id="resume">Résumé</a>
+          <a class="btn ghost" href="https://linkedin.com/in/placeholder" id="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/placeholder" id="github" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <ul class="links" style="margin-top:12px">
+          <li><strong>Current:</strong> TA @ UCSB Machine Shop (ME12S/ME156)</li>
+          <li><strong>Recent:</strong> SLAC — DESEE sensor packaging (thermal, vacuum)</li>
+          <li><strong>Team:</strong> Gaucho Racing — chassis & powertrain</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub">Highlights</div>
+        <ul class="links" aria-label="Highlights">
+          <li>Reduced modeled sensor→sink thermal resistance via interface+preload study</li>
+          <li>Parametric CAD for fixtures; SOPs for metrology & fixturing</li>
+          <li>Focus: reliability-first powertrain & chassis packaging</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="links" aria-label="Selected projects">
+      <div><strong>Projects:</strong> SLAC DESEE Packaging · Gaucho Racing Chassis · E39 M5 OEM+ plan</div>
+    </section>
+
+    <footer>© <span id="y"></span> Eugene Antone — Built to be fast & simple</footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Optional: set contact info via query params for quick sharing, e.g. ?email=me@x.com&li=eugene&gh=sencho
+    const p = new URLSearchParams(location.search);
+    if(p.get('email')) document.getElementById('email').href = 'mailto:' + p.get('email');
+    if(p.get('li')) document.getElementById('linkedin').href = 'https://linkedin.com/in/' + p.get('li');
+    if(p.get('gh')) document.getElementById('github').href = 'https://github.com/' + p.get('gh');
+  </script>
+</body>
+</html>
